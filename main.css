@@ -1,0 +1,158 @@
+/* Global Styles */
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .container {
+    max-width: 960px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  .col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+  
+  /* Header Styles */
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  /* Navigation Styles */
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav li {
+    list-style: none;
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  /* Banner Styles */
+  
+  .banner {
+    background-image: url('https://example.com/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .banner h2 {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px #333;
+  }
+  
+  /* Main Content Styles */
+  
+  main {
+    padding: 40px 0;
+  }
+  
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .service {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 40px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .service h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .service p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .cta {
+    background-color: #007bff;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .cta h2 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    text
+  
