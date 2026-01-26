@@ -1,0 +1,137 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║        RAWLINGS GLOBAL SOLUTIONS - QUICK START GUIDE          ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+TWO WAYS TO GET STARTED:
+
+═════════════════════════════════════════════════════════════════
+  OPTION 1: ONE-CLICK METHOD (EASIEST) ⚡
+═════════════════════════════════════════════════════════════════
+
+  STEP 1: Install Node.js (if not already installed)
+    → Go to: https://nodejs.org/
+    → Download the LTS (Long Term Support) version
+    → Run the installer
+    → Keep all default options
+    → Click "Install"
+
+  STEP 2: Double-click this file:
+    📄 install-dependencies.bat
+
+    Wait 1-3 minutes for installation to complete.
+
+  STEP 3: Double-click this file:
+    📄 run-dev-server.bat
+
+    This will start the website!
+
+  STEP 4: Open your browser to:
+    🌐 http://localhost:3000
+
+═════════════════════════════════════════════════════════════════
+  OPTION 2: MANUAL METHOD (COMMAND LINE)
+═════════════════════════════════════════════════════════════════
+
+  STEP 1: Install Node.js (same as above)
+
+  STEP 2: Open terminal in this folder
+    → Press Win + R
+    → Type: powershell
+    → Press Enter
+    → Type: cd "c:\Users\User\Documents\RGS webapp"
+    → Press Enter
+
+  STEP 3: Install dependencies
+    → Type: npm install
+    → Press Enter
+    → Wait 1-3 minutes
+
+  STEP 4: Start development server
+    → Type: npm run dev
+    → Press Enter
+
+  STEP 5: Open browser to:
+    🌐 http://localhost:3000
+
+═════════════════════════════════════════════════════════════════
+  WHAT YOU'LL SEE
+═════════════════════════════════════════════════════════════════
+
+  ✓ Homepage with cinematic hero section
+  ✓ Metrics: 72h, 99.9%, Zero Noise
+  ✓ Animated SOC telemetry feed
+  ✓ 4 service cards
+  ✓ 6 industry sectors
+  ✓ Fully responsive design
+  ✓ All pages: Home, About, Services, Training, Events, Contact
+
+═════════════════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═════════════════════════════════════════════════════════════════
+
+  ❌ "Node is not recognized"
+    → Node.js is not installed or not in PATH
+    → Install/reinstall Node.js from nodejs.org
+    → Restart your computer after installation
+
+  ❌ "Port 3000 is already in use"
+    → Another app is using port 3000
+    → Close other development servers
+    → Or restart your computer
+
+  ❌ "Cannot find module"
+    → Dependencies not installed
+    → Run: install-dependencies.bat
+    → Or manually: npm install
+
+  ❌ Page won't load
+    → Check terminal for error messages
+    → Try: Ctrl+C (stop server) then run-dev-server.bat
+    → Clear browser cache: Ctrl+Shift+R
+
+═════════════════════════════════════════════════════════════════
+  EDITING CONTENT
+═════════════════════════════════════════════════════════════════
+
+  📝 To change website text:
+    → Open: lib/content.ts
+    → Edit any text you want
+    → Save the file (Ctrl+S)
+    → Browser updates automatically! ✨
+
+═════════════════════════════════════════════════════════════════
+  HELPFUL FILES
+═════════════════════════════════════════════════════════════════
+
+  📖 START-HERE.md          - Detailed step-by-step guide
+  📖 README.md              - Project overview
+  📖 INSTRUCTIONS.md        - Complete setup & deployment guide
+  📖 TESTING.md             - Testing documentation
+  📖 VALIDATION.md          - Validation report
+  🌐 preview.html           - Static HTML preview (no setup needed)
+
+═════════════════════════════════════════════════════════════════
+  STOPPING THE SERVER
+═════════════════════════════════════════════════════════════════
+
+  To stop the development server:
+    → Press Ctrl+C in the terminal window
+    → Or close the terminal window
+
+═════════════════════════════════════════════════════════════════
+  NEED MORE HELP?
+═════════════════════════════════════════════════════════════════
+
+  1. Read START-HERE.md for detailed instructions
+  2. Check terminal/console for error messages
+  3. Press F12 in browser to see console errors
+  4. Visit Next.js docs: https://nextjs.org/docs
+
+═════════════════════════════════════════════════════════════════
+
+🎉 You're ready to go! Follow the steps above and your website
+   will be running locally in about 5 minutes!
+
+═════════════════════════════════════════════════════════════════

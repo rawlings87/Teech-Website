@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rawlings Global Solutions - UI Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-ink: #0A0D12;
+            --color-steel: #1A1F2E;
+            --color-slate: #2D3548;
+            --color-mist: #64748B;
+            --color-frost: #F1F5F9;
+            --color-primary: #3B82F6;
+            --color-primary-dim: #1E40AF;
+            --color-accent: #06B6D4;
+            --color-success: #10B981;
+            --color-warning: #F59E0B;
+            --color-danger: #EF4444;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--color-ink);
+            color: var(--color-frost);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 13, 18, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--color-slate);
+        }
+
+        .navbar-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-frost);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            padding: 0.5rem 0.75rem;
+            color: var(--color-frost);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            color: white;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: var(--color-steel);
+            color: var(--color-frost);
+            border: 1px solid var(--color-slate);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-slate);
+            border-color: var(--color-mist);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-steel) 100%);
+            padding: 5rem 1.5rem;
+            margin-top: 64px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 56rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: rgba(241, 245, 249, 0.8);
+            margin-bottom: 2rem;
+            max-width: 48rem;
+        }
+
+        .hero .location {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--color-accent);
+            margin-bottom: 3rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Metrics Strip */
+        .metrics {
+            background: var(--color-steel);
+            border-top: 1px solid var(--color-slate);
+            border-bottom: 1px solid var(--color-slate);
+            padding: 3rem 1.5rem;
+        }
+
+        .metrics-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--color-mist);
+        }
+
+        /* Telemetry Feed */
+        .telemetry {
+            padding: 5rem 1.5rem;
+            background: var(--color-ink);
+        }
+
+        .telemetry-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--color-mist);
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        .feed-container {
+            position: relative;
+            height: 24rem;
+            overflow: hidden;
+            background: rgba(26, 31, 46, 0.5);
+            border-radius: 0.75rem;
+            border: 1px solid var(--color-slate);
+        }
+
+        .feed {
+            padding: 1rem 0;
+            animation: scroll 20s linear infinite;
+        }
+
+        .feed-item {
+            padding: 0.75rem 1.5rem;
+            background: rgba(26, 31, 46, 0.8);
+            border-left: 2px solid var(--color-accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feed-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5rem;
+            background: linear-gradient(to bottom, rgba(26, 31, 46, 0.5), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .feed-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5rem;
+            background: linear-gradient(to top, rgba(26, 31, 46, 0.5), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 5rem 1.5rem;
+            background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-steel) 100%);
+        }
+
+        .services-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--color-steel);
+            border: 1px solid var(--color-slate);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            background: var(--color-slate);
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--color-mist);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link {
+            color: var(--color-primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Industries */
+        .industries {
+            padding: 5rem 1.5rem;
+            background: var(--color-ink);
+        }
+
+        .industries-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .industry-card {
+            background: var(--color-steel);
+            border: 1px solid var(--color-slate);
+            border-radius: 0.75rem;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .industry-icon {
+            width: 3rem;
+            height: 3rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 0.75rem;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .industry-icon-inner {
+            width: 1.5rem;
+            height: 1.5rem;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 0.25rem;
+        }
+
+        .industry-card h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* CTA Block */
+        .cta-block {
+            padding: 5rem 1.5rem;
+            background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-steel) 100%);
+        }
+
+        .cta-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: var(--color-steel);
+            border: 1px solid var(--color-slate);
+            border-radius: 1rem;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-container p {
+            font-size: 1.125rem;
+            color: var(--color-mist);
+            max-width: 48rem;
+            margin: 0 auto 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-steel);
+            border-top: 1px solid var(--color-slate);
+            padding: 3rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-status {
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--color-slate);
+            text-align: center;
+        }
+
+        .footer-status p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--color-success);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 0.875rem;
+            color: var(--color-mist);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-copyright {
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-slate);
+            text-align: center;
+        }
+
+        .footer-copyright p {
+            font-size: 0.75rem;
+            color: var(--color-mist);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: rgba(251, 191, 36, 0.2);
+            color: var(--color-warning);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Preview Notice */
+        .preview-notice {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+
+        .preview-notice strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preview Notice -->
+    <div class="preview-notice">
+        <strong>Static Preview Mode</strong>
+        <p>For full interactivity, run: npm run dev</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">Rawlings Global Solutions</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Training</a></li>
+                <li><a href="#">Recruitment</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#" class="btn btn-secondary">Get a Quote</a>
+                <a href="#" class="btn btn-primary">Book a Consultation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Digital Security & IT Excellence for Modern Organisations</h1>
+            <p>A Black-owned tech company that digitally secures small businesses all over Africa. We deliver consulting, training, and talent solutions with a security-first, forensic mindset—from database performance to cloud modernisation and workforce enablement.</p>
+            <p class="location">Sugar Land, TX • Serving North America & Offshore Delivery</p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary">Book a Consultation</a>
+                <a href="#" class="btn btn-secondary">Get a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Strip -->
+    <section class="metrics">
+        <div class="metrics-container">
+            <div class="metric">
+                <div class="metric-value">72h</div>
+                <div class="metric-label">Rapid assessment & action plan</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">99.9%</div>
+                <div class="metric-label">Reliability mindset (SRE-inspired)</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">Zero Noise</div>
+                <div class="metric-label">Only measurable work</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telemetry Feed -->
+    <section class="telemetry">
+        <div class="telemetry-container">
+            <div class="section-header">
+                <h2>Live Operations View</h2>
+                <p>Simulated telemetry showcasing our security-first, evidence-driven approach</p>
+            </div>
+            <div class="feed-container">
+                <div class="feed">
+                    <div class="feed-item">[THREAT INTEL] Analysing phishing campaign vectors for client infrastructure</div>
+                    <div class="feed-item">[MFA CHALLENGE] Multi-factor authentication policy deployed across 3 sites</div>
+                    <div class="feed-item">[DFIR TRIAGE] Digital forensics investigation initiated—evidence chain secured</div>
+                    <div class="feed-item">[SQL LATENCY] Database query optimisation reduced response time by 340ms</div>
+                    <div class="feed-item">[LEAST PRIVILEGE] Identity access review completed for 120 user accounts</div>
+                    <div class="feed-item">[TRAINING COHORT] SQL Server fundamentals track—intake open for Q2 2026</div>
+                    <!-- Duplicate for infinite scroll effect -->
+                    <div class="feed-item">[THREAT INTEL] Analysing phishing campaign vectors for client infrastructure</div>
+                    <div class="feed-item">[MFA CHALLENGE] Multi-factor authentication policy deployed across 3 sites</div>
+                    <div class="feed-item">[DFIR TRIAGE] Digital forensics investigation initiated—evidence chain secured</div>
+                    <div class="feed-item">[SQL LATENCY] Database query optimisation reduced response time by 340ms</div>
+                    <div class="feed-item">[LEAST PRIVILEGE] Identity access review completed for 120 user accounts</div>
+                    <div class="feed-item">[TRAINING COHORT] SQL Server fundamentals track—intake open for Q2 2026</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services">
+        <div class="telemetry-container">
+            <div class="section-header">
+                <h2>What We Do</h2>
+                <p>Cost-effective optimisation, performance engineering, and talent delivery for organisations that demand reliability and precision.</p>
+            </div>
+            <div class="services-grid">
+                <div class="card">
+                    <h3>IT Consulting & Optimisation</h3>
+                    <p>Streamline your technology stack, reduce costs, and improve system performance with expert guidance.</p>
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>Database & Platform Engineering</h3>
+                    <p>Performance tuning, migrations, reliability upgrades, and modernisation for SQL Server and cloud platforms.</p>
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>IT Training & Career Enablement</h3>
+                    <p>SQL Server training at multiple levels, plus career coaching to build workforce capability.</p>
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>Recruitment & Global Delivery</h3>
+                    <p>Access skilled engineers across offshore locations and North American SMEs for your projects.</p>
+                    <a href="#" class="card-link">
+                        Learn more →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="industries">
+        <div class="telemetry-container">
+            <div class="section-header">
+                <h2>Industries We Serve</h2>
+                <p>Risk-aware architecture, performance engineering, and operations discipline for regulated sectors.</p>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <div class="industry-icon-inner"></div>
+                    </div>
+                    <h3>Banking & Finance</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <div class="industry-icon-inner"></div>
+                    </div>
+                    <h3>Insurance</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <div class="industry-icon-inner"></div>
+                    </div>
+                    <h3>Oil & Gas</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <div class="industry-icon-inner"></div>
+                    </div>
+                    <h3>Manufacturing</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <div class="industry-icon-inner"></div>
+                    </div>
+                    <h3>Telecommunications</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <div class="industry-icon-inner"></div>
+                    </div>
+                    <h3>Public Sector</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Block -->
+    <section class="cta-block">
+        <div class="cta-container">
+            <h2>Start with a Rapid Assessment</h2>
+            <p>72-hour discovery → Prioritised action plan → Delivery with evidence. No noise, no guesswork—just measurable outcomes.</p>
+            <a href="#" class="btn btn-primary">Book a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-status">
+                <p>Operational Status: Online • API Responsive • SOC View Active • Evidence Chain Verified</p>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Rawlings Global Solutions</h3>
+                    <p>A Black-owned tech company that digitally secures small businesses all over Africa.</p>
+                    <p>Sugar Land, TX • Serving North America & Offshore Delivery</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Training</a>
+                    <a href="#">Recruitment</a>
+                    <a href="#">Events</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Security</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2026 Rawlings Global Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
