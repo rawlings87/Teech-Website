@@ -141,7 +141,7 @@ export default function QuoteForm() {
 
         {submitStatus === 'success' && (
           <p className="text-success text-center">
-            Thank you! We'll respond within one business day.
+            Thank you! We&apos;ll respond within one business day.
           </p>
         )}
 
